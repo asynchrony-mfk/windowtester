@@ -32,8 +32,6 @@ import com.windowtester.runtime.condition.IsVisible;
 import com.windowtester.runtime.swt.condition.SWTIdleCondition;
 import com.windowtester.runtime.swt.internal.condition.eclipse.ViewClosedConditionHandler;
 import com.windowtester.runtime.swt.internal.condition.eclipse.ViewCondition;
-import com.windowtester.runtime.swt.internal.condition.eclipse.ViewShowingConditionHandler;
-import com.windowtester.runtime.swt.internal.condition.eclipse.ViewZoomedConditionHandler;
 import com.windowtester.runtime.swt.internal.condition.eclipse.ViewCondition.Active;
 import com.windowtester.runtime.swt.internal.condition.eclipse.ViewCondition.Dirty;
 import com.windowtester.runtime.swt.internal.display.RunnableWithResult;
@@ -362,24 +360,6 @@ public class ViewLocator extends SWTWidgetLocator implements IWorkbenchPartLocat
 		return ViewClosedConditionHandler.forView(this);
 	}
 
-	
-	/**
-	 * Create a condition handler that ensures that this view is showing.
-	 * 
-	 * @since 3.8.1
-	 */
-	public IConditionHandler isShowing() {
-		return ViewShowingConditionHandler.forView(this);
-	}
-
-	/**
-	 * Create a condition handler that ensures that this view is zoomed.
-	 * 
-	 * @since 4.0.0
-	 */
-	public IConditionHandler isZoomed() {
-		return ViewZoomedConditionHandler.forView(this, viewHelper);
-	}
 	
 	
 	/**

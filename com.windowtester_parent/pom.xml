@@ -134,7 +134,7 @@
 				<artifactId>tycho-packaging-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<format>'e44x'yyyyMMddHHmm</format>
+					<format>'asy'yyyyMMddHHmm</format>
 				</configuration>
 			</plugin>
 			<plugin>

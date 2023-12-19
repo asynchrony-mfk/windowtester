@@ -5,7 +5,6 @@ import java.io.*;
 
 import abbot.Log;
 
-import com.sun.image.codec.jpeg.*;
 
 /**
    This code expects the availability of the com.sun.image.codec.jpeg

@@ -11,7 +11,6 @@
 package com.windowtester.runtime.swt.internal.finder;
 
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.custom.TableTreeItem;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.widgets.Caret;
@@ -59,8 +58,6 @@ public class FinderUtil {
 					widgetT = ((TabItem) c).getParent();
 				if (c instanceof TableColumn)
 					widgetT = ((TableColumn) c).getParent();
-				if (c instanceof TableTreeItem)
-					widgetT = ((TableTreeItem) c).getParent();
 				if (c instanceof MenuItem) {
 					widgetT = ((MenuItem) c).getParent().getParent();
 				}

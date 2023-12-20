@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.custom.TableTreeItem;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.CoolItem;
 import org.eclipse.swt.widgets.Menu;
@@ -97,14 +96,6 @@ public class WidgetState implements IWidgetState {
         else if (w instanceof TableColumn) {
             TableColumn tc = (TableColumn)w; 
             base.put(IWidgetStateConstants.TEXT, tc.getText());
-        }
-        else if (w instanceof TableTreeItem) {
-            TableTreeItem tti = (TableTreeItem)w;
-            //but other stuff is: grayed, expanded, etc.
-            base.put(IWidgetStateConstants.CHECKED,   tti.getChecked());
-            base.put(IWidgetStateConstants.GRAYED,    tti.getGrayed());
-            base.put(IWidgetStateConstants.EXPANDED,  tti.getExpanded());
-            base.put(IWidgetStateConstants.TEXT,      tti.getText());
         }
         else if (w instanceof ToolItem) {
             ToolItem ti = (ToolItem)w;

@@ -16,7 +16,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTError;
 import org.eclipse.swt.SWTException;
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.custom.TableTreeItem;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DropTarget;
 import org.eclipse.swt.widgets.Caret;
@@ -127,8 +126,6 @@ public class SWTUtils {
 					return ((TabItem) c).getParent();
 				if (c instanceof TableColumn)
 					return ((TableColumn) c).getParent();
-				if (c instanceof TableTreeItem)
-					return ((TableTreeItem) c).getParent();
 				if (c instanceof MenuItem) {
 					return ((MenuItem) c).getParent().getParent();
 				}

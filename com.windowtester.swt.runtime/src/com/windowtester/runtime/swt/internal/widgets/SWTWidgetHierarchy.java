@@ -72,7 +72,6 @@ public class SWTWidgetHierarchy {
 		void visitGroup(Group widget);
 		void visitTabFolder(TabFolder widget);
 		void visitTable(Table widget);
-		void visitTableTree(TableTree widget);
 		void visitToolBar(ToolBar widget);
 		void visitTree(Tree widget);
 		void visitViewForm(ViewForm widget);
@@ -317,11 +316,6 @@ public class SWTWidgetHierarchy {
 			
 		}
 
-		public void visitTableTree(TableTree widget) {
-			//no-op
-			
-		}
-
 		public void visitText(Text widget) {
 			//no-op
 			
@@ -531,10 +525,6 @@ public class SWTWidgetHierarchy {
 			visitComposite(widget);
 		}
 		@Override
-		public void visitTableTree(TableTree widget){
-			visitComposite(widget);
-		}
-		@Override
 		public void visitToolBar(ToolBar widget){
 			visitComposite(widget);
 		}
@@ -707,8 +697,6 @@ public class SWTWidgetHierarchy {
 			visitor.visitTabFolder((TabFolder) widget);
 		else if (widget instanceof Table)
 			visitor.visitTable((Table) widget);
-		else if (widget instanceof TableTree)
-			visitor.visitTableTree((TableTree) widget);
 		else if (widget instanceof ToolBar)
 			visitor.visitToolBar((ToolBar) widget);
 		else if (widget instanceof Tree)

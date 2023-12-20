@@ -15,9 +15,9 @@ import static com.windowtester.runtime.swt.internal.matchers.WidgetMatchers.ofCl
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IconAndMessageDialog;
 import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.dialogs.MessageLine;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.dialogs.SelectionStatusDialog;
-import org.eclipse.ui.internal.MessageLine;
 
 import com.windowtester.internal.runtime.reflect.FieldAccessor;
 import com.windowtester.runtime.swt.internal.widgets.ISWTWidgetReference;

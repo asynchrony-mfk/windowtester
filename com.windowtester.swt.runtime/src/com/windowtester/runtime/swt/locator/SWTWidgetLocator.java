@@ -596,14 +596,14 @@ public class SWTWidgetLocator extends WidgetLocator implements IUISelector, IsVi
 			 * NOTE: this only handles Links with exactly one href.  If the need arises
 			 * we will need to revisit.
 			 */
-			if (w instanceof Link) {
-				Rectangle offset = new LinkReference((Link)w).getOffset(0);
-				//sanity check in case y is unset (in win32 case)
-				if (offset.y == 0)
-					offset.y = 4;
-				if (offset != null)
-					return new Point(offset.x + offset.width/2, offset.y/2);
-			}
+			//if (w instanceof Link) {
+			//	Rectangle offset = new LinkReference((Link)w).getOffset(0);
+			//	//sanity check in case y is unset (in win32 case)
+			//	if (offset.y == 0)
+			//		offset.y = 4;
+			//	if (offset != null)
+			//		return new Point(offset.x + offset.width/2, offset.y/2);
+			//}
 			// TODO[pq]: this reference should already be calculated and passed in 
 			ISWTWidgetReference<?> ref = (ISWTWidgetReference<?>) WTRuntimeManager.asReference(w);
 			Rectangle rect = ref.getDisplayBounds();

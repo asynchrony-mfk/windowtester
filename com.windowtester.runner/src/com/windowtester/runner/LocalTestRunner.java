@@ -14,7 +14,6 @@ import java.io.IOException;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IPlatformRunnable;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.swt.widgets.Display;
@@ -28,10 +27,7 @@ import com.windowtester.runner.util.Logger;
  * this is copied from org.eclipse.test.UITestApplication.
  */
 public class LocalTestRunner
-	implements IPlatformRunnable
-	/* $codepro.preprocessor.if version >= 3.3 $ */
-	, org.eclipse.equinox.app.IApplication
-/* $codepro.preprocessor.endif $ */
+	implements org.eclipse.equinox.app.IApplication
 {
 	private static final String TEST_APPLICATION_OPTION = "-testApplication";
 	private static final String DEFAULT_APP_3_0 = "org.eclipse.ui.ide.workbench"; //$NON-NLS-1$
@@ -113,12 +109,8 @@ public class LocalTestRunner
 		if (runs.length == 0)
 			fail("Failed to find " + Platform.PT_APPLICATIONS + " run child element for " + appId);
 		Object application = runs[0].createExecutableExtension("class"); //$NON-NLS-1$
-		if (application instanceof IPlatformRunnable)
-			return application;
-		/* $codepro.preprocessor.if version >= 3.3 $ */
 		if (application instanceof org.eclipse.equinox.app.IApplication)
 			return application;
-		/* $codepro.preprocessor.endif $ */
 		String className = application != null ? application.getClass().getName() : "null";
 		fail(className + " does not implement IApplication or IPlatformRunnable");
 		// fail throws RuntimeException, so this return is never reached
@@ -132,14 +124,11 @@ public class LocalTestRunner
 	 * @param args the argument(s) to pass to the application
 	 */
 	private void launchApplication(Object args, Object application) throws Exception {
-		Object result;
-		/* $codepro.preprocessor.if version >= 3.3 $ */
+		Object result = null;
 		if (application instanceof org.eclipse.equinox.app.IApplication)
 			result = ((org.eclipse.equinox.app.IApplication) application).start(appContext);
-		else
-			/* $codepro.preprocessor.endif $ */
-			result = ((IPlatformRunnable) application).run(args);
-		if (!IPlatformRunnable.EXIT_OK.equals(result)) {
+
+		if (!IApplication.EXIT_OK.equals(result)) {
 			System.err.println("UITestRunner: Unexpected result from running application " + application + ": "
 				+ result);
 		}

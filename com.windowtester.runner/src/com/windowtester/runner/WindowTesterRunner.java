@@ -10,7 +10,8 @@
  *******************************************************************************/
 package com.windowtester.runner;
 
-import org.eclipse.core.runtime.IPlatformRunnable;
+import org.eclipse.equinox.app.IApplication;
+import org.eclipse.equinox.app.IApplicationContext;
 
 import com.windowtester.runner.util.Logger;
 
@@ -21,27 +22,26 @@ import com.windowtester.runner.util.Logger;
  * {@link LocalTestRunner}.
  */
 public class WindowTesterRunner
-	implements IPlatformRunnable
+	implements IApplication
 {
 	private static final String ECLIPSE_TEST_ID = "org.eclipse.test";
 	private static final String ECLIPSE_TEST_CLASSNAME = "org.eclipse.test.UITestApplication";
 
-	private IPlatformRunnable runner;
-
+	private IApplication runner;
+	
 	/**
 	 * Main entry point.
-	 * Runs this runnable with the given args and returns a result.
-	 * @see org.eclipse.core.runtime.IPlatformRunnable#run(java.lang.Object)
+	 * 
+	 * @see org.eclipse.equinox.app.IApplication#start(IApplicationContext)
 	 */
-	public Object run(Object object) throws Exception {
-		String[] args = (String[]) object;
+	public Object start(IApplicationContext context) throws Exception {
 		WrapperedTestRunner eclipseTestRunner = new WrapperedTestRunner(ECLIPSE_TEST_ID, ECLIPSE_TEST_CLASSNAME);
 		try {
-			if (eclipseTestRunner.canStart(args))
+			if (eclipseTestRunner.canStart(context))
 				runner = eclipseTestRunner;
 			else
 				runner = new LocalTestRunner();
-			return runner.run(args);
+			return runner.start(context);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -49,4 +49,30 @@ public class WindowTesterRunner
 			throw e;
 		}
 	}
+	
+	public void stop() {
+		// no-op		
+	}
+
+//	/**
+//	 * Main entry point.
+//	 * Runs this runnable with the given args and returns a result.
+//	 * @see org.eclipse.core.runtime.IPlatformRunnable#run(java.lang.Object)
+//	 */
+//	public Object run(Object object) throws Exception {
+//		String[] args = (String[]) object;
+//		WrapperedTestRunner eclipseTestRunner = new WrapperedTestRunner(ECLIPSE_TEST_ID, ECLIPSE_TEST_CLASSNAME);
+//		try {
+//			if (eclipseTestRunner.canStart(args))
+//				runner = eclipseTestRunner;
+//			else
+//				runner = new LocalTestRunner();
+//			return runner.run(args);
+//		}
+//		catch (Exception e) {
+//			e.printStackTrace();
+//			Logger.log("Unhandled exception", e);
+//			throw e;
+//		}
+//	}
 }

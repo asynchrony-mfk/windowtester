@@ -12,7 +12,7 @@ package com.windowtester.swt.event.recorder.workbench;
 
 import org.eclipse.swt.widgets.Widget;
 import org.eclipse.ui.IPerspectiveDescriptor;
-import org.eclipse.ui.internal.PerspectiveBarContributionItem;
+//import org.eclipse.ui.internal.PerspectiveBarContributionItem;
 
 import com.windowtester.internal.runtime.PropertySet;
 import com.windowtester.internal.runtime.locator.IdentifierAdapter;
@@ -67,8 +67,8 @@ public class PerspectiveInspector {
 
 	public SemanticWidgetInspectionEvent getDescription(Widget w) {
 		Object data = UIProxy.getData(w);
-		if (!(data instanceof PerspectiveBarContributionItem))
-			return null;
+//		if (!(data instanceof PerspectiveBarContributionItem))
+//			return null;
 		Object ref = Reflector.forObject(data).invoke("getPerspective");
 		if (!(ref instanceof IPerspectiveDescriptor))
 			return null;

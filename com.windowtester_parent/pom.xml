@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>1.7.0</tycho-version>
+		<tycho-version>2.7.5</tycho-version>
 	</properties>
 	
 	<modules>
@@ -27,9 +27,9 @@
 
 	<repositories>
 		<repository>
-			<id>2020-06</id>
+			<id>2022-06</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/2020-06</url>
+			<url>http://download.eclipse.org/releases/2022-06</url>
 		</repository>
 	</repositories>
 

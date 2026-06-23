@@ -11,5 +11,5 @@ Require-Bundle: com.windowtester.runtime,
  com.windowtester.swt.recorder
 Export-Package: com.windowtester.swt.gef.codegen
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Localization: plugin

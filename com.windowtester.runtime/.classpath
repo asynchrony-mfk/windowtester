@@ -7,6 +7,5 @@
 	<classpathentry exported="true" kind="lib" path="abbot/lib/bsh.jar" sourcepath="com.windowtester.runtimesrc.zip"/>
 	<classpathentry exported="true" kind="lib" path="abbot/lib/gnu-regexp.jar" sourcepath="com.windowtester.runtimesrc.zip"/>
 	<classpathentry exported="true" kind="lib" path="abbot/lib/jdom.jar" sourcepath="com.windowtester.runtimesrc.zip"/>
-	<classpathentry exported="true" kind="lib" path="abbot/lib/xml-apis.jar" sourcepath="com.windowtester.runtimesrc.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -5,8 +5,7 @@ Bundle-SymbolicName: com.windowtester.runtime; singleton:=true
 Bundle-Version: 6.2.0.qualifier
 Bundle-ClassPath: commonRuntime.jar,
  abbot/lib/gnu-regexp.jar,
- abbot/lib/jdom.jar,
- abbot/lib/xml-apis.jar
+ abbot/lib/jdom.jar
 Bundle-Activator: com.windowtester.internal.runtime.RuntimePlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
